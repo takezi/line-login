@@ -11,16 +11,16 @@ session_start();
 // 認可コードまたはエラーレスポンスを受け取る
 // See. https://developers.line.biz/ja/docs/line-login/integrate-line-login/#receiving-the-authorization-code-or-error-response-with-a-web-app
 
+// stateの検証
+if($_SESSION['oauth_state'] != $_GET['state']) {
+    echo '認可サーバーが無効なstateパラメータを返却しました。';
+    exit;
+}
+
 // エラーチェック
 if(isset($_GET['error'])) {
     echo '<p>許可サーバーがエラーを返しました：' . htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8') . '</p>';
     echo '<p>' . htmlspecialchars($_GET['error_description'], ENT_QUOTES, 'UTF-8') . '</p>';
-    exit;
-}
-
-// stateの検証
-if($_SESSION['oauth_state'] != $_GET['state']) {
-    echo '認可サーバーが無効なstateパラメータを返却しました。';
     exit;
 }
 

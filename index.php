@@ -58,7 +58,7 @@ function base64url_encode($data) {
     </ul>
     <form method="POST" action="send.php">
         <input type="hidden" name="_csrf" value="<?php echo $_SESSION['csrf_token']; ?>">
-        <p>ログインユーザーにメッセージを送る（Messaging APIチャネルが追加された公式アカウントが必要）</p>
+        <p>ログインユーザーにメッセージを送る（Messaging APIチャネル作成時に自動的に追加されたLINE公式アカウントに、予め友だち登録が必要）</p>
         <textarea name="message" cols="80" rows="5"></textarea><br>
         <input type="submit" value="送信">
     </form>

@@ -95,6 +95,10 @@ SetEnv LINE_MESSAGE_CHANNEL_ACCESS_TOKEN lUEdqPlxca9cJzhsJf4PLb0aonuxWZIsjUrUocC
     ngrokのURLは起動する度に変化します。
     起動する度に、`.htaccess` と LINE DevelopersコンソールでコールバックURLを再設定する必要があります。  
     ※本番環境ではURLが変化しないため、一度設定すると変える必要はありません。
+- 「400 Bad」(This channel is now developing status. User need to have developer role.) と表示される  
+    LINEログインのチャネルが「非公開」（デフォルト）になっています。
+    非公開の状態では権限設定で許可されたユーザーだけがログインできます。
+    開発が完了したら「公開」にして任意のユーザーがログインできるようにします。
 - 「認可サーバーが無効なstateパラメータを返却しました。」と表示される  
     間違ってcallback.phpにアクセスすると発生します。最初にアクセスするURLはindex.phpです。
 
